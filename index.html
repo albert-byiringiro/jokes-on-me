@@ -5,41 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <div class="container"></div>
+  <div class="container">
+    <h1 id="setupTitle"></h1>
+    <img src="./img/wonder.webp" alt="" class="" />
+    <p class="deliveryText"></p>
+  </div>
   <body>
-    <script>
-      // fetch for random jokes
-      async function getDemJokes() {
-        try {
-          const response = await fetch(
-            "https://v2.jokeapi.dev/joke/Programming?blacklistFlags=nsfw,religious,political,racist,sexist,explicit&type=twopart"
-          );
-          const data = await response.json();
-          return data;
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-      async function displayJokes() {
-        try {
-          const data = await getDemJokes();
-          if (!data) {
-            throw new Error("Jokes not found");
-          }
-          const container = document.querySelector(".container");
-          const setupTitle = document.createElement("h1");
-          setupTitle.textContent = data.setup;
-          const deliveryText = document.createElement("p");
-          deliveryText.textContent = data.delivery;
-
-          container.append(setupTitle, deliveryText);
-        } catch (error) {
-          console.error(error);
-        }
-      }
-
-      displayJokes();
-    </script>
+    <script src="./app.js"></script>
   </body>
 </html>
